@@ -51,9 +51,10 @@ public class CircleTrails extends PApplet {
 	 * This method is called repeatedly many times per second (usually 30 times per second by default) for the lifetime of the app.
 	 */
 	public void draw() {
+		// this.background(0, 0, 0);
 
 		//generate pseudo-random R,G,B values
-		float r = 255 * (second() * 1.0f/60); //between 0 - 255 based on current number of seconds
+		float r = 255 * (PApplet.second() * 1.0f/60); //between 0 - 255 based on current number of seconds
 		float g = 100f; //hard-coded amount of green
 		float b = 92f; //hard-coded amount of blue
 		

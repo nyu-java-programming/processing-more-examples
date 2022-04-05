@@ -15,9 +15,9 @@ public class Circle {
 	private int height = 50;
 	private int speedX = 5;
 	private int speedY = 8;
-	int r;
-	int g;
-	int b;
+	private int r;
+	private int g;
+	private int b;
 	
 	public static final int MAX_X = 1000;
 	public static final int MAX_Y = 600;

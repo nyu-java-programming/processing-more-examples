@@ -54,7 +54,7 @@ public class CircleOscillator extends PApplet {
 	}
 	
 	/**
-	 * This method is called repeatedly many times per second (usually 30 times per second by default) for the lifetime of the app.
+	 * This method is called repeatedly many times per second (usually 60 times per second by default) for the lifetime of the app.
 	 */
 	public void draw() {
 		

@@ -20,7 +20,7 @@ public class SmileyBouncer extends PApplet {
 	//the starting settings of the circle
 	private int x = 200;
 	private int y = 200;
-	private int circle_radius = 25;
+	private int circleRadius = 25;
 	private int speedX = 1;
 	private int speedY = 2;
 
@@ -28,7 +28,7 @@ public class SmileyBouncer extends PApplet {
 	private boolean isCollision = false;
 
 	//define a processing-specific image data type that will hold the smiley face image
-	private PImage smiley;
+	private PImage smileyImage;
 
 	/**
 	 * This method is automatically called by Java when the program first starts.
@@ -48,7 +48,7 @@ public class SmileyBouncer extends PApplet {
 	public void setup() {
 
 		//load up our smiley face icon
-		this.smiley = this.loadImage("images/smiley.png");
+		this.smileyImage = this.loadImage("images/smiley.png");
 
 		this.background(255, 255, 255); //white background
 
@@ -63,22 +63,22 @@ public class SmileyBouncer extends PApplet {
 
 		//draw the cursor image
 		this.imageMode(PConstants.CENTER); //make the x, y coordinate of the image center
-		this.image(this.smiley, this.mouseX, this.mouseY);  //draw the smiley image at the mouse's position
+		this.image(this.smileyImage, this.mouseX, this.mouseY);  //draw the smiley image at the mouse's position
 
 		//draw the ellipse
-		this.ellipse(this.x, this.y, this.circle_radius*2,  this.circle_radius*2); //draw the ellipse
+		this.ellipse(this.x, this.y, this.circleRadius*2,  this.circleRadius*2); //draw the ellipse
 
 		//adjust the position of the ellipse
 		this.x = this.x + this.speedX; //move in the x  direction
 		this.y = this.y + this.speedY; //move in the y  direction
 
 		//check the bounds of the x position  of the ellipse
-		if (this.x >= this.width - this.circle_radius || this.x  <= 0 + this.circle_radius) {
+		if (this.x >= this.width - this.circleRadius || this.x  <= 0 + this.circleRadius) {
 			this.speedX = this.speedX * -1;
 		} 
 
 		//check the bounds of the y position  of the ellipse
-		if (this.y >= this.height - this.circle_radius || this.y  <= 0 + this.circle_radius) {
+		if (this.y >= this.height - this.circleRadius || this.y  <= 0 + this.circleRadius) {
 			this.speedY = this.speedY * -1;
 		} 
 

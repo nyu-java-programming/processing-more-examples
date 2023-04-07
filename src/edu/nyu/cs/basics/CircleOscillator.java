@@ -15,13 +15,17 @@ public class CircleOscillator extends PApplet {
 	//constants that hold the width and height of the window
 	final private int w = 600;
 	final private int h = 400;
+
+	// the width and height of the ellipse we will draw
+	final private int ellipseWidth = 100;
+	final private int ellipseHeight = 100;
 	
 	//properties to hold the current position of the circle
-	private int x = 0; //hard-coded starting value for the x position
-	final private int y = 300; //hard-coded value for the y position that never changes
+	private int ellipseX = 50; //hard-coded starting value for the x position
+	final private int ellipseY = 300; //hard-coded value for the y position that never changes
 	
 	//speed with which the circle is moving
-	int speed = 5; //this will be set to -1 to make the circle move the opposite direction when the circle reaches the edge
+	private int speed = 15; //this will be set to -1 to make the circle move the opposite direction when the circle reaches the edge
 	
 	/**
 	 * This method is automatically called by Java when the program first starts.
@@ -45,11 +49,9 @@ public class CircleOscillator extends PApplet {
 	 */
 	public void setup() {
 
-		//fill the background with this color (specified in 8-bit R, G, B values)
-		this.background(255, 255, 255); //white
-
 		//set the fill color (the color which solid shapes will be filled with)
 		this.fill(120,50,240); 
+		this.stroke(12, 100, 100);
 
 	}
 	
@@ -70,7 +72,8 @@ public class CircleOscillator extends PApplet {
 		this.fill(r, g, b);
 		
 		//draw an ellipse of width and height 100, and position its center at the current value of the x and y instance properties
-		this.ellipse(this.x, this.y, 200, 100);
+		this.ellipseMode(PApplet.CENTER);
+		this.ellipse(this.ellipseX, this.ellipseY, this.ellipseWidth, this.ellipseHeight);
 		
 		//update the x position for next time we draw it
 		this.moveX();
@@ -81,13 +84,13 @@ public class CircleOscillator extends PApplet {
 	 */
 	public void moveX() {
 		//if the circle has gone out of bounds in either direction
-		if (this.x > this.w || this.x < 0) {
+		if (this.ellipseX + this.ellipseWidth/2 > this.w || this.ellipseX - this.ellipseWidth/2 < 0) {
 			//reverse direction of movement
 			this.speed = this.speed * -1; 
 		}
 		
 		//move the circle in the direction of movement.
-		this.x = this.x + this.speed;
+		this.ellipseX = this.ellipseX + this.speed;
 	}
 	
 }

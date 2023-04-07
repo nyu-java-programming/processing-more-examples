@@ -45,7 +45,7 @@ public class PlayWithCircles extends PApplet {
 		
 		// make some circles
 		for (int i = 0; i<PlayWithCircles.NUM_CIRCLES; i++) {
-			Circle myCircle = new Circle();
+			Circle myCircle = new Circle(this);
 			this.circles.add(myCircle);
 		}
 		
@@ -71,7 +71,7 @@ public class PlayWithCircles extends PApplet {
 			this.fill(thisCircle.getR(), thisCircle.getG(), thisCircle.getB());
 			
 			// draw the circle at its x an y coordinates
-			this.ellipse(thisCircle.getX(), thisCircle.getY(), thisCircle.getWidth(), thisCircle.getHeight());			
+			thisCircle.draw();
 			
 			// update the circle's position
 			thisCircle.setX(thisCircle.getX() + thisCircle.getSpeedX() );

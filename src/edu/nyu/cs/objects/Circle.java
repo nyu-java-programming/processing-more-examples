@@ -8,6 +8,8 @@ package edu.nyu.cs.objects;
  */
 public class Circle {
 
+	private PlayWithCircles app;
+
 	// propertiess
 	private int x = 10;
 	private int y = 10;
@@ -33,7 +35,8 @@ public class Circle {
 	 * @param speedX The speed in the x direction
 	 * @param speedY The speed in the y direction
 	 */
-	public Circle(int x, int y, int speedX, int speedY) {
+	public Circle(PlayWithCircles app, int x, int y, int speedX, int speedY) {
+		this.app = app;
 		this.setX(x);
 		this.setY(y);
 		this.setSpeedX(speedX);
@@ -44,7 +47,9 @@ public class Circle {
 	 * No-args constructor.
 	 * Creates a circle with random x,y coordinates, random speed, random diameter, and random color
 	 */
-	public Circle() {
+	public Circle(PlayWithCircles app) {
+		this.app = app;
+
 		// set up pseudo-random x, y coordinates
 		int x = (int) (Math.random() * Circle.MAX_X);
 		int y = (int) (Math.random() * Circle.MAX_Y);
@@ -65,6 +70,10 @@ public class Circle {
 		this.setG((int) (Math.random() * 256));
 		this.setB((int) (Math.random() * 256));
 		
+	}
+
+	public void draw() {
+			this.app.ellipse(this.getX(), this.getY(), this.getWidth(), this.getHeight());			
 	}
 
 	/**

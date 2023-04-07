@@ -28,7 +28,7 @@ public class PsychedelicKitten extends PApplet {
 	private int ellipseSpacing = 100;
 	
 	//image 
-	private PImage kitten;
+	private PImage kittenImage;
 	private int kittenXPos = 200;
 	private int kittenYPos = 200;
 	
@@ -56,7 +56,7 @@ public class PsychedelicKitten extends PApplet {
 	 */
 	public void setup() {
 		//load the image file and store it in the PImage object
-		this.kitten = this.loadImage("images/kitten.jpg");
+		this.kittenImage = this.loadImage("images/kitten.jpg");
 	}
 	
 	/**
@@ -73,7 +73,7 @@ public class PsychedelicKitten extends PApplet {
 		this.rect(this.rectXPos, this.rectYPos, this.rectWidth, this.rectHeight);
 		
 		//draw the kitten image
-		this.image(this.kitten, this.kittenXPos, this.kittenYPos);
+		this.image(this.kittenImage, this.kittenXPos, this.kittenYPos);
 		
 		//generate new x and y coords for the rectangle with a slight change
 		this.rectXPos = this.rectXPos + this.getRandomOffset(10);

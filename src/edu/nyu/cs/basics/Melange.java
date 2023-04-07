@@ -31,8 +31,8 @@ public class Melange extends PApplet {
 	private int rectSpeedY = 5; //how much to change the rectangle's Y position with every frame
 	
 	//image-related properties
-	private PImage puppy;
-	private PImage button;
+	private PImage puppyImage;
+	private PImage buttonImage;
 
 	/**
 	 * This method is automatically called when the program runs.
@@ -59,14 +59,14 @@ public class Melange extends PApplet {
 		//using colors from colourlovers.com: http://www.colourlovers.com/palette/4535252/unfinished_2nd
 		
 		//get a PImage object and store it in the instance property
-		this.puppy = this.loadImage("images/puppy.jpg");
-		this.button = this.loadImage("images/button.png");
+		this.puppyImage = this.loadImage("images/puppy.jpg");
+		this.buttonImage = this.loadImage("images/button.png");
 
 		//fill the window with a solid color
 		this.background(240, 224, 7); //in R,G,B 8-bit values
 		
 		//draw the puppy at its original starting position
-		this.image(this.puppy, this.w/2, this.h/2);
+		this.image(this.puppyImage, this.w/2, this.h/2);
 		
 	}
 	
@@ -89,10 +89,12 @@ public class Melange extends PApplet {
 		this.rect(this.rectX, this.rectY, this.rectWidth, this.rectHeight);
 		
 		//draw a poor puppy centered wherever the cursor is pointing
-		this.image(this.puppy, this.mouseX - 75, this.mouseY - 75);
+		this.imageMode(PApplet.CENTER);
+		this.image(this.puppyImage, this.mouseX, this.mouseY);
 		
 		//draw the button at the top left of the screen
-		this.image(button, 0, 0);
+		this.imageMode(PApplet.CORNER);
+		this.image(buttonImage, 0, 0);
 
 		//check whether the circle is out of bounds
 		if (this.circleX > this.width - (this.circleDiameter / 2) || this.circleX - (this.circleDiameter / 2) < 0) {
@@ -119,7 +121,7 @@ public class Melange extends PApplet {
 		String message = "woof"; //a default message to draw to the screen
 		
 		//check whether the click happened "inside" the button area
-		if (this.mouseX > 0 && this.mouseX < this.button.width && this.mouseY > 0 && this.mouseY < this.button.height) {
+		if (this.mouseX > 0 && this.mouseX < this.buttonImage.width && this.mouseY > 0 && this.mouseY < this.buttonImage.height) {
 			//change the message
 			message = "CLICK!";
 		}
